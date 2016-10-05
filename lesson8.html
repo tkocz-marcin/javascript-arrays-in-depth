@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Array</title>
+<style>
+    li {
+        margin: 3vh 0;
+    }
+
+</style>
+
+</head>
+<body>
+
+    <input type="text" id="input">
+
+    <button type="button" id="button">Add</button>
+
+    <ul id="list">
+        <!-- Pets -->
+    </ul>
+
+    <script>
+const input  = document.querySelector('#input');
+const button = document.querySelector('#button');
+const list   = document.querySelector('#list');
+
+const pets   = [];
+
+button.addEventListener("click", function (evt) {
+    if (input.value.length > 0) {
+        pets.push(input.value);
+        input.value = "";
+        render();
+    }
+});
+
+function render () {
+    const li = document.createElement('li');
+    var text = pets.map(x => `${x}`).join('');
+  console.log(text);
+    li.innerText = text
+    list.appendChild(li);
+    //list.innerHTML = pets.map(x => `<li>${x}</li>`).join('');
+}
+
+    </script>
+</body>
+</html>

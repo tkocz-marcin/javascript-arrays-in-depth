@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Array</title>
+<style>
+	li {
+		margin: 3vh 0;
+	}
+
+</style>
+
+</head>
+<body>
+
+<div id="output"></div>
+
+    <script>
+    // var person  = ['aga', 'adam', 'andzia', 'marta'];
+// person = person.sort((a,b) => a.length-b.length);
+// var number = [1,2,10,22,12];
+// number = number.sort((a,b) => b-a);
+
+// console.log(person)
+// console.log(number)
+
+var stats = [
+    {
+        day: 'Poniedziałek',
+        views: 1234
+    },
+    {
+        day: 'Wtorek',
+        views: 5432
+    },
+    {
+        day: 'Sroda',
+        views: 5231
+    },
+    {
+        day: 'Czwartek',
+        views: 2341
+    },
+    {
+        day: 'Piatek',
+        views: 5311
+    },
+    {
+        day: 'Sobota',
+        views: 2134
+    }
+];
+
+var list = stats
+    .sort((a, b) => b.views - a.views)
+    .filter(x => x.views > 3000)
+    .map(x => `    <li>${x.day} (${x.views})</li>`)
+    .join('\n');
+
+var output = `<ol>\n${list}\n</ol>`;
+
+var container = document.querySelector('#output');
+container.innerHTML = output;
+
+    </script>
+</body>
+</html>
+
